@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 
 # Ladda data
-movies = pd.read_csv("Labb/ml-latest/movies.csv")
+movies = pd.read_csv("ml-latest/movies.csv")
 
 # One-hot encoding, skapa matris av varje genre
 genres = movies["genres"].str.get_dummies(sep="|")
