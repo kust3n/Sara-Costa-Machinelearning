@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 
 # Ladda data
-movies = pd.read_csv("ml-latest/movies.csv")
+movies = pd.read_csv("Labb/ml-latest/movies.csv")
 
 # One-hot encoding, skapa matris av varje genre
 genres = movies["genres"].str.get_dummies(sep="|")
@@ -22,5 +22,13 @@ def recommendation(movie_title, n=5):
         n_neighbors = n + 1
     )
 
-    recs = movies.iloc[indices[0][1:]]['title'].tolist()
+    recs = movies.iloc[indices[0][1:]]["title"].tolist()
     return recs
+
+if __name__ == "__main__":
+    movie = input("Enter a movie you like: ")
+    recs = recommendation(movie)
+
+    print("\nRecommended movies:")
+    for r in recs:
+        print(r)
